@@ -1,0 +1,133 @@
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.page-title h1 {
+  font-size: 2rem;
+  color: #0277bd;
+  font-weight: bold;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #FAF9FD;
+}
+
+.loading-container mat-spinner {
+  margin-bottom: 20px;
+}
+
+.loading-container p {
+  font-size: 1.2rem;
+  color: #555;
+  letter-spacing: 0.5px;
+}
+
+.mat-table {
+  min-width: 90%;
+  margin: 40px auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mat-header-cell, .mat-cell {
+  padding: 16px;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.mat-header-cell {
+  font-weight: bold;
+  background-color: #f5f5f5;
+}
+
+.mat-row {
+  transition: background-color 0.3s ease;
+}
+
+.mat-row:hover {
+  background-color: #e0f7fa;
+}
+
+.mat-icon-button {
+  color: #0277bd;
+}
+
+.mat-icon-button:hover {
+  background-color: rgba(2, 119, 189, 0.1);
+}
+
+.filter-input {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.filter-input mat-form-field {
+  width: 80%;
+  max-width: 200px;
+}
+
+.filter-input input {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+.animated-border {
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+  max-width: 200px;
+  height: 2px;
+  background-color: #0277bd;
+  animation: slide 2s linear forwards;
+  visibility: hidden;
+}
+
+@keyframes slide {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.mat-button {
+  background-color: #0277bd;
+  color: white;
+  padding: 10px 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  text-transform: none;
+  transition: background-color 0.3s ease;
+}
+
+.mat-button:hover {
+  color: white;
+  background-color: #01579b;
+}
+
+.mat-icon-button mat-icon {
+  font-size: 20px;
+}
+
