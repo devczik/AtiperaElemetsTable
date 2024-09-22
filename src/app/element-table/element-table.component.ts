@@ -54,18 +54,16 @@ export class ElementTableComponent implements OnInit {
 
   constructor(private dialog: MatDialog,
               private dataService: DataService,
-              private state: RxState<ElementTableState>) {
+              private state: RxState<ElementTableState>) {}
+
+  ngOnInit(): void {
     this.state.set({
       loading: true,
       filterValue: '',
       elementData: [],
       filteredData: [],
     });
-  }
 
-
-
-  ngOnInit(): void {
     this.state.select('filteredData').pipe(
       map(data => data || [])
     ).subscribe(data => {
@@ -94,7 +92,6 @@ export class ElementTableComponent implements OnInit {
         )
       )
     );
-
   }
 
   applyFilter(filterInput: string | Event): void {
