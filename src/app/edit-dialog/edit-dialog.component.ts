@@ -1,11 +1,12 @@
-import { Component, Inject } from '@angular/core';
-import {MatDialogRef, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { PeriodicElement } from '../models/periodic-element';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatIconModule} from "@angular/material/icon";
-import {FormsModule} from "@angular/forms";
-import {MatInputModule} from "@angular/material/input";
-import {MatButton} from "@angular/material/button";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatIconModule } from "@angular/material/icon";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from "@angular/material/button";
 
 @Component({
   selector: 'app-edit-dialog',
@@ -17,16 +18,27 @@ import {MatButton} from "@angular/material/button";
     MatInputModule,
     MatIconModule,
     MatDialogModule,
-    FormsModule,
-    MatButton
+    ReactiveFormsModule,
+    MatButtonModule
   ]
 })
-export class EditDialogComponent {
+export class EditDialogComponent implements OnInit {
+  editForm!: FormGroup;
 
   constructor(
     public dialogRef: MatDialogRef<EditDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: PeriodicElement
+    @Inject(MAT_DIALOG_DATA) public data: PeriodicElement,
+    private fb: FormBuilder
   ) { }
+
+  ngOnInit(): void {
+    this.editForm = this.fb.group({
+      position: [this.data.position],
+      name: [this.data.name],
+      weight: [this.data.weight],
+      symbol: [this.data.symbol]
+    });
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
